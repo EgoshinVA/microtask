@@ -1,21 +1,18 @@
-import React from 'react';
-import {Button} from "./components/button/Button";
+import React, {useState} from 'react';
 
 function App() {
+    let [a, setA] = useState<number>(1)
 
-    const ButtonFoo = (text: string, age:number) => {
-        console.log(text, age)
-    }
-
-    const Button3 = () => {
-        console.log('Im stupid button')
+    const onClickHandler = () => {
+        setA(++a)
+        console.log(a)
     }
 
     return (
         <div>
-            <Button title={'YT Channel-1'} callBack={() => ButtonFoo('1 but', 21)}/>
-            <Button title={'YT Channel-2'} callBack={() => ButtonFoo('2 but', 22)}/>
-            <Button title={'Stupid btn'} callBack={Button3}/>
+            {a}
+            <button onClick={onClickHandler}>add</button>
+            <button onClick={()=>{setA(0)}}>0</button>
         </div>
     );
 }
