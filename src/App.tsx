@@ -1,20 +1,22 @@
-import React, {useState} from 'react';
-import {NewComponent} from "./NewComponent";
-
-export type CarInfoType = {
-    manufacturer: string,
-    model: string
-}
+import React from 'react';
+import {Button} from "./components/button/Button";
 
 function App() {
-    const [carInfo, setCarInfo] = useState<CarInfoType[]>([
-        {manufacturer:'BMW', model:'m5cs'},
-        {manufacturer:'Mercedes', model:'e63s'},
-        {manufacturer:'Audi', model:'rs6'}
-        ]
-    )
+
+    const ButtonFoo = (text: string, age:number) => {
+        console.log(text, age)
+    }
+
+    const Button3 = () => {
+        console.log('Im stupid button')
+    }
+
     return (
-        <NewComponent carInfo={carInfo}/>
+        <div>
+            <Button title={'YT Channel-1'} callBack={() => ButtonFoo('1 but', 21)}/>
+            <Button title={'YT Channel-2'} callBack={() => ButtonFoo('2 but', 22)}/>
+            <Button title={'Stupid btn'} callBack={Button3}/>
+        </div>
     );
 }
 
